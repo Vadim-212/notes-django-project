@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Вход{% endblock title %}
+
+{% block content %}
+    <div>Ну здарова блин</div>
+    <div>
+        <div>
+            <input type="text" placeholder="Логин"/>
+        </div>
+        <div>
+            <input type="password" placeholder="Пароль"/>
+        </div>
+        <input type="submit" value="Вход"/>
+    </div>
+    <div>Нет аккаунта? <a href="/signup">Регистрация</a>.</div>
+{% endblock %}
