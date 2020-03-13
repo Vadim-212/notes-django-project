@@ -6,6 +6,7 @@ from django.db.models import fields as f
 
 class User(models.Model):
     login = f.TextField()
+    email = f.TextField()
     password = f.TextField()
 
 
