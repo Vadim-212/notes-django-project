@@ -1,5 +1,7 @@
+{% load i18n %}
+{% get_current_language as lang %}
 <!DOCTYPE html>
-<html>
+<html lang="{{ lang }}">
     {# Make modifiable head elements #}
     <head>
         <title>{% block title %}Home {% endblock title %}</title>

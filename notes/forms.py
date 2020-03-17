@@ -3,24 +3,25 @@ from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django import forms
 from django.contrib.auth.models import User
 from notes.models import User as UserModel
+from django.utils.translation import gettext as _
 import bcrypt
 
 
 class RegisterForm(UserCreationForm):
-    username = UsernameField(label="Имя пользователя")
-    email = forms.EmailField(label="Email")
+    username = UsernameField(label=_("Username"))
+    email = forms.EmailField(label=_("Email"))
     password1 = forms.CharField(
-        label="Пароль",
+        label=_("Password"),
         strip=False,
         widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
     )
     password2 = forms.CharField(
-        label="Подтверждение пароля",
+        label=_("Confirm password"),
         widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
         strip=False,
     )
     error_messages = {
-        'password_mismatch': 'Пароли не совпадают.',
+        'password_mismatch': _("Passwords don't match"),
     }
 
     class Meta:
@@ -29,8 +30,8 @@ class RegisterForm(UserCreationForm):
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(label="Имя пользователя")
-    password = forms.CharField(widget=forms.PasswordInput, label="Пароль")
+    username = forms.CharField(label=_("Username"))
+    password = forms.CharField(widget=forms.PasswordInput, label=_("Password"))
 
 
 # class ModelBackend(BaseBackend):

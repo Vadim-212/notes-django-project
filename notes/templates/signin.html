@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
-{% block title %}Вход{% endblock title %}
+{% block title %}{% trans "Sign in" %}{% endblock title %}
 
 {% block content %}
     <div>Ну здарова блин</div>
     <div>
         <div>
-            <input type="text" placeholder="Логин"/>
+            <input type="text" placeholder="{% trans 'Login' %}"/>
         </div>
         <div>
-            <input type="password" placeholder="Пароль"/>
+            <input type="password" placeholder="{% trans 'Password' %}"/>
         </div>
-        <input type="submit" value="Вход"/>
+        <input type="submit" value="{% trans 'Sign in' %}"/>
     </div>
-    <div>Нет аккаунта? <a href="/signup">Регистрация</a>.</div>
+    <div>{% trans 'No account?' %} <a href="/signup">{% trans 'Registration' %}</a>.</div>
 {% endblock %}

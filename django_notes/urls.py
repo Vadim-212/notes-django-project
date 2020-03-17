@@ -19,6 +19,7 @@ from notes import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index),
     path('signin/', views.sign_in),
     path('signup/', views.sign_up, name='signup'),
     path('user/', views.show_user)

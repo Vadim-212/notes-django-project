@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
-{% block title %}Регистрация{% endblock title %}
+{% block title %}{% trans "Registration" %}{% endblock title %}
 
 {% block content %}
-    <div>Пользователь</div>
+    <div>{% trans "Username" %}</div>
     <div>
         <div>
-            <input type="text" placeholder="Логин"/>
+            <input type="text" placeholder="{% trans 'Login' %}"/>
         </div>
         <div>
-            <input type="password" placeholder="Пароль"/>
+            <input type="password" placeholder="{% trans 'Password' %}"/>
         </div>
         <div>
-            <input type="password" placeholder="Повторите пароль"/>
+            <input type="password" placeholder="{% trans 'Confirm password' %}"/>
         </div>
-        <input type="submit" value="Регистрация"/>
+        <input type="submit" value="{% trans 'Registration' %}"/>
     </div>
 {% endblock %}

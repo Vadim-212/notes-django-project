@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LoginView
 from notes.forms import RegisterForm, login, LoginForm
+from django.utils.translation import gettext as _
 
 
 # Create your views here.
@@ -54,14 +55,15 @@ def sign_up(request):
             raw_password = form.cleaned_data.get('password1')
             # print(raw_password)
             user = authenticate(username=username, password=raw_password)
-            login(request, user)
+            # login(request, user)
             # new_user = login(username, email, raw_password)
             request.session['logged_user_id'] = user
+            print('\n\n------>', request.session['logged_user_id'])
             # print('--->', new_user, new_user.id, new_user.login, new_user.email, new_user.password)
             return redirect(index)
     else:
         form = RegisterForm()
-    # request.session['logged_user_id'] = user.id
+
     return render(request, 'signup.html', context={'form': form})
 
 
