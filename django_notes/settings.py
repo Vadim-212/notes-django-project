@@ -27,6 +27,58 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+      'require_debug_false': {
+          '()': 'django.utils.log.RequireDebugFalse',
+      }
+    },
+    'formatters': {
+      'verbose': {
+        'format': '{asctime} {levelname} {process:d}-{thread:d} {name}: {message}',
+        'style': '{',
+      },
+      # 'simple': {
+      #     'format': '{levelname} {message}',
+      #     'style': '{',
+      # },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+        'file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'level': 'INFO',
+            'formatter': 'verbose',
+            'filename': 'junk.log',
+            'mode': 'a',
+            'maxBytes': 10485760,
+            'backupCount': 5,
+        },
+    },
+    'loggers':
+        {
+        'tasker': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+            'propagate': False
+        }
+    }
+}
+
+# email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
 # Application definition
 
@@ -122,5 +174,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-

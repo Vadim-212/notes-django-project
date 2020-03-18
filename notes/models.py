@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import fields as f
+from django.urls import reverse
 
 # Create your models here.
 
@@ -21,3 +22,6 @@ class Note(models.Model):
 
     def __str__(self):
         return self.text
+
+    def get_absolute_url(self):
+        return reverse('note-show', kwargs=dict(note_id=self.id))

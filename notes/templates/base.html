@@ -1,5 +1,6 @@
 {% load i18n %}
 {% get_current_language as lang %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="{{ lang }}">
     {# Make modifiable head elements #}
@@ -24,7 +25,7 @@
         {% endblock head_meta %}
         {% block head_css %}
             {% block head_css_site %}
-                <link href="{{ STATIC_URL }}css/bootstrap.min.css"
+                <link href="{% static 'css/bootstrap.min.css' %}"
                       rel="stylesheet" media="screen">
                 <link href="{{ STATIC_URL }}css/app.css"
                       rel="stylesheet" media="screen">
@@ -32,38 +33,34 @@
             {% block head_css_section %}{% endblock head_css_section %}
             {% block head_css_page %}{% endblock head_css_page %}
         {% endblock head_css %}
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
     </head>
 <body>
     {# Navigation Menu #}
-<!--    <header>-->
-<!--        <div class="navbar navbar-default navbar-static-top-->
-<!--        {% block nav-style %}{% endblock %}">-->
-<!--            <div class="container p-none">-->
-<!--                <div class="navbar-header">-->
-<!--                    <button type="button" class="navbar-toggle"-->
-<!--                            data-toggle="collapse"-->
-<!--                            data-target=".navbar-collapse">-->
-<!--                        <span class="icon-bar"></span>-->
-<!--                        <span class="icon-bar"></span>-->
-<!--                        <span class="icon-bar"></span>-->
-<!--                    </button>-->
-<!--                    <a class="navbar-brand" href="/">Notes</a>-->
-<!--                </div>-->
-<!--                <div class="collapse navbar-collapse">-->
-<!--                    <ul class="nav navbar-nav navbar-right">-->
-<!--                        {% if user.is_authenticated %}-->
-<!--                            <li><a href="">Logout</a></li>-->
-<!--                            <li><a href=""-->
-<!--                                   class="p-r-none">Accounts</a></li>-->
-<!--                        {% else %}-->
-<!--                            <li><a href="">Login</a></li>-->
-<!--                            <li><a href="" class="p-r-none">Sign Up</a></li>-->
-<!--                        {% endif %}-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </header>-->
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Notes</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <a href="#">Logout</a>
+    </span>
+  </div>
+</nav>
+    </div>
     {# The Document Body #}
     <div id="site-wrapper">
         {% block content %}

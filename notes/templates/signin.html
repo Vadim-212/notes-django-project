@@ -1,16 +1,25 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block title %}{% trans "Sign in" %}{% endblock title %}
 
 {% block content %}
-    <div>Ну здарова блин</div>
-    <div>
-        <div>
-            <input type="text" placeholder="{% trans 'Login' %}"/>
-        </div>
-        <div>
-            <input type="password" placeholder="{% trans 'Password' %}"/>
-        </div>
-        <input type="submit" value="{% trans 'Sign in' %}"/>
-    </div>
-    <div>{% trans 'No account?' %} <a href="/signup">{% trans 'Registration' %}</a>.</div>
+     <h2>{% trans 'Sign in' %}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+      <div>{{ error_message }}</div>
+    <button type="submit">{% trans 'Sign in' %}</button>
+      <div>{% trans 'No account?' %} <a href="/signup">{% trans 'Registration' %}</a>.</div>
+  </form>
 {% endblock %}

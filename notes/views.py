@@ -4,15 +4,22 @@ from notes.models import Note, User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LoginView
-from notes.forms import RegisterForm, login, LoginForm
+from notes.forms import RegisterForm, LoginForm
 from django.utils.translation import gettext as _
+import logging
 
 
 # Create your views here.
 
 
+log = logging.getLogger(__name__)
+
+
 def index(request):
-    print('session ->', request.session['logged_user_id'])
+    try:
+        print('session ->', request.session['logged_user'])
+    except Exception as e:
+        print(e)
     return render(request, 'index.html')
 
 # LoginView
@@ -33,15 +40,19 @@ def sign_in(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
+                    print(user)
+                    request.session['logged_user'] = user
                     # return HttpResponse('Authenticated successfully')
                     return redirect('index')
                 else:
-                    return HttpResponse('Disabled account')
+                    # return HttpResponse('Disabled account')
+                    return render(request, 'signin.html', context={'form': form, 'error_message': _('Disabled account')})
             else:
-                return HttpResponse('Invalid login')
+                # return HttpResponse('Invalid login')
+                return render(request, 'signin.html', context={'form': form, 'error_message': _('Invalid login')})
     else:
         form = LoginForm()
-    return render(request, 'account/login.html')#, {'form': form})
+    return render(request, 'signin.html', context={'form': form})
 
 
 def sign_up(request):
@@ -57,10 +68,10 @@ def sign_up(request):
             user = authenticate(username=username, password=raw_password)
             # login(request, user)
             # new_user = login(username, email, raw_password)
-            request.session['logged_user_id'] = user
-            print('\n\n------>', request.session['logged_user_id'])
+            request.session['logged_user'] = user
+            print('\n\n------>', request.session['logged_user'])
             # print('--->', new_user, new_user.id, new_user.login, new_user.email, new_user.password)
-            return redirect(index)
+            return redirect('index')
     else:
         form = RegisterForm()
 
@@ -68,11 +79,11 @@ def sign_up(request):
 
 
 def logout(request):
-    del request.session['logged_user_id']
+    del request.session['logged_user']
     return redirect('index')
 
 
 def show_user(request):
-    user_id = request.session['logged_user_id']
+    user_id = request.session['logged_user']
     user = User.objects.get(pk=user_id)
     return render(request, 'show_user.html', context={'user': user})

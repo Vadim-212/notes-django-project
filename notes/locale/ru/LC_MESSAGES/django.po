@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-17 21:04+0600\n"
+"POT-Creation-Date: 2020-03-18 20:19+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,6 @@ msgid "Email"
 msgstr "Email"
 
 #: .\forms.py:14 .\forms.py:34 .\templates\show_user.html:11
-#: .\templates\signin.html:11
 msgid "Password"
 msgstr "Пароль"
 
@@ -42,19 +41,28 @@ msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
 #: .\templates\show_user.html:2 .\templates\show_user.html:16
-#: .\templates\signin.html:15 .\templates\signup.html:2
-#: .\templates\signup.html:5 .\templates\signup.html:20
+#: .\templates\signin.html:23 .\templates\signup.html:3
+#: .\templates\signup.html:6 .\templates\signup.html:21
 msgid "Registration"
 msgstr "Регистрация"
 
-#: .\templates\show_user.html:8 .\templates\signin.html:8
+#: .\templates\show_user.html:8
 msgid "Login"
 msgstr "Логин"
 
-#: .\templates\signin.html:2 .\templates\signin.html:13
+#: .\templates\signin.html:3 .\templates\signin.html:6
+#: .\templates\signin.html:22
 msgid "Sign in"
 msgstr "Вход"
 
-#: .\templates\signin.html:15
+#: .\templates\signin.html:23
 msgid "No account?"
 msgstr "Нет аккаунта?"
+
+#: .\views.py:44
+msgid "Disabled account"
+msgstr "Аккаунт отключён"
+
+#: .\views.py:47
+msgid "Invalid login"
+msgstr "Неверный логин"
