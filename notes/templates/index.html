@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}
-<!--{% trans "Main" %}-->
-Main
-{% endblock title %}
+{% block title %}{% trans 'Main' %}{% endblock title %}
+
+{% block content %}
+    {% if request.session.logged_user %}
+        <div>
+            {% trans 'Notes' %}
+        </div>
+    {% else %}
+        <div>
+            <div>{% trans 'Notes' %}!</div>
+            <div>
+                <button onlick="location.assign('/signin')">{% trans 'Sign in' %}</button>
+                <button onlick="location.assign('/signup')">{% trans 'Sign up' %}</button>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import fields as f
 from django.urls import reverse
+from django.contrib import auth
 
 # Create your models here.
 
@@ -14,7 +15,7 @@ class User(models.Model):
 class Note(models.Model):
     text = f.TextField()
     time_added = f.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(auth.models.User, on_delete=models.CASCADE)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

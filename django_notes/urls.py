@@ -14,12 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from notes import views
 from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap
 from notes.models import Note
-
+from rest_framework import routers
 
 info_dict = {
     'queryset': Note.objects.all(),
@@ -29,6 +29,7 @@ info_dict = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('note/', include('notes.urls')),
     path('', views.index, name='index'),
     path('signin/', views.sign_in),
     path('signup/', views.sign_up, name='signup'),

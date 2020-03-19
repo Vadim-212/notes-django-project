@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from notes import templates
-from notes.models import Note, User
+from notes.models import Note#, User
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LoginView
@@ -20,7 +21,7 @@ def index(request):
         print('session ->', request.session['logged_user'])
     except Exception as e:
         print(e)
-    return render(request, 'index.html')
+    return render(request, 'index.html', context={'request': request})
 
 # LoginView
 # LoginView
@@ -84,6 +85,9 @@ def logout(request):
 
 
 def show_user(request):
-    user_id = request.session['logged_user']
-    user = User.objects.get(pk=user_id)
+    try:
+        user_id = request.session['logged_user']
+    except:
+        return redirect('index')
+    user = User.objects.get(username=user_id)
     return render(request, 'show_user.html', context={'user': user})

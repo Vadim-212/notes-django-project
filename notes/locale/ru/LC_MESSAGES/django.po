@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-18 20:19+0600\n"
+"POT-Creation-Date: 2020-03-19 21:33+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\forms.py:11 .\forms.py:33 .\templates\show_user.html:5
+#: .\forms.py:11 .\forms.py:33
 msgid "Username"
 msgstr "Имя пользователя"
 
@@ -28,11 +28,11 @@ msgstr "Имя пользователя"
 msgid "Email"
 msgstr "Email"
 
-#: .\forms.py:14 .\forms.py:34 .\templates\show_user.html:11
+#: .\forms.py:14 .\forms.py:34
 msgid "Password"
 msgstr "Пароль"
 
-#: .\forms.py:19 .\templates\show_user.html:14
+#: .\forms.py:19
 msgid "Confirm password"
 msgstr "Подтверждение пароля"
 
@@ -40,29 +40,48 @@ msgstr "Подтверждение пароля"
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
-#: .\templates\show_user.html:2 .\templates\show_user.html:16
-#: .\templates\signin.html:23 .\templates\signup.html:3
-#: .\templates\signup.html:6 .\templates\signup.html:21
-msgid "Registration"
-msgstr "Регистрация"
+#: .\templates\base.html:8 .\templates\index.html:8 .\templates\index.html:12
+msgid "Notes"
+msgstr "Заметки"
 
-#: .\templates\show_user.html:8
-msgid "Login"
-msgstr "Логин"
+#: .\templates\base.html:57
+#, fuzzy
+#| msgid "Username"
+msgid "User"
+msgstr "Имя пользователя"
 
-#: .\templates\signin.html:3 .\templates\signin.html:6
-#: .\templates\signin.html:22
+#: .\templates\index.html:3
+msgid "Main"
+msgstr "Главная"
+
+#: .\templates\index.html:14 .\templates\signin.html:3
+#: .\templates\signin.html:6 .\templates\signin.html:22
 msgid "Sign in"
 msgstr "Вход"
+
+#: .\templates\index.html:15
+#, fuzzy
+#| msgid "Sign in"
+msgid "Sign up"
+msgstr "Вход"
+
+#: .\templates\show_user.html:3 .\templates\signin.html:23
+#: .\templates\signup.html:3 .\templates\signup.html:6
+#: .\templates\signup.html:21
+msgid "Registration"
+msgstr "Регистрация"
 
 #: .\templates\signin.html:23
 msgid "No account?"
 msgstr "Нет аккаунта?"
 
-#: .\views.py:44
+#: .\views.py:50
 msgid "Disabled account"
 msgstr "Аккаунт отключён"
 
-#: .\views.py:47
+#: .\views.py:53
 msgid "Invalid login"
 msgstr "Неверный логин"
+
+#~ msgid "Login"
+#~ msgstr "Логин"
