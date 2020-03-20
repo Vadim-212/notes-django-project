@@ -112,7 +112,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'notes/templates/base.html'
+            'notes/templates/'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
