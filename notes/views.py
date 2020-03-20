@@ -21,7 +21,7 @@ def index(request):
         print('session ->', request.session['logged_user'])
     except Exception as e:
         print(e)
-    return render(request, '../notes/templates/index.html', context={'request': request})
+    return render(request, 'index.html', context={'request': request})
 
 # LoginView
 # LoginView
