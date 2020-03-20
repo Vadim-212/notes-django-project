@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth.models import User
 from notes.models import User as UserModel
 from django.utils.translation import gettext as _
-import bcrypt
+# import bcrypt
 
 
 class RegisterForm(UserCreationForm):
@@ -63,8 +63,8 @@ class LoginForm(forms.Form):
 #        return is_active or is_active is None
 
 
-def login(username, email, password):
-    pass_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
-    user = UserModel(login=username, email=email, password=pass_hash)
-    user.save()
-    return user
+# def login(username, email, password):
+#     pass_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+#     user = UserModel(login=username, email=email, password=pass_hash)
+#     user.save()
+#     return user
