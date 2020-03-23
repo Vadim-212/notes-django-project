@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Note" %}{% endblock title %}
+
+{% block content %}
+    <div>{% trans 'Note' %}</div>
+    <div>{% trans 'Author' %}: {{ note.user }}</div>
+    <div>{% trans 'Private' %}:
+    {% if note.is_private %}
+        <span>+</span>
+        {% else %}
+        <span>-</span>
+        {% endif %}
+    </div>
+    <div>
+        <textarea readonly="true">{{ note.text }}</textarea>
+    </div>
+{% endblock %}

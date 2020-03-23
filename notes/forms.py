@@ -34,6 +34,11 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput, label=_("Password"))
 
 
+class NoteForm(forms.Form):
+    is_private = forms.BooleanField(label=_("Private"),initial=True)
+    text = forms.CharField(label=_("Note text"),widget=forms.Textarea)
+
+
 # class ModelBackend(BaseBackend):
 #     """
 #     Authenticates against settings.AUTH_USER_MODEL.

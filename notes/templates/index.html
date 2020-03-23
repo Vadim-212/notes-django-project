@@ -3,7 +3,7 @@
 {% block title %}{% trans 'Main' %}{% endblock title %}
 
 {% block content %}
-    {% if request.session.logged_user %}
+    {% if user_login != None %}
         <div>
             {% trans 'Notes' %}
         </div>
@@ -11,8 +11,8 @@
         <div>
             <div>{% trans 'Notes' %}!</div>
             <div>
-                <button onlick="location.assign('/signin')">{% trans 'Sign in' %}</button>
-                <button onlick="location.assign('/signup')">{% trans 'Sign up' %}</button>
+                <button onclick="location.assign('/signin')">{% trans 'Sign in' %}</button>
+                <button onclick="location.assign('/signup')">{% trans 'Sign up' %}</button>
             </div>
         </div>
     {% endif %}

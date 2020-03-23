@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans 'Main' %}{% endblock title %}
+
+{% block content %}
+    <div>notes</div>
+    <div>
+        <ul>
+         {% for note in notes %}
+          <li>
+              <ul>
+              <li>{% trans 'Private' %}:
+                {% if note.is_private %}
+                  <span>{% trans 'yes' %}</span>
+                  {% else %}
+                  <span>{% trans 'no' %}</span>
+                  {% endif %}
+              </li>
+              <li>
+                  <div>{% trans 'Text' %}:</div>
+                  <div>{{ note.text }}</div>
+              </li>
+              </ul>
+          </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

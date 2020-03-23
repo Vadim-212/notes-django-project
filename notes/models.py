@@ -15,6 +15,7 @@ class User(models.Model):
 class Note(models.Model):
     text = f.TextField()
     time_added = f.DateTimeField(auto_now_add=True)
+    is_private = f.BooleanField()
     user = models.ForeignKey(auth.models.User, on_delete=models.CASCADE)
 
     def __init__(self, *args, **kwargs):

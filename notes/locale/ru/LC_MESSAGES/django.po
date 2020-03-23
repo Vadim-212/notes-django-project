@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-19 21:33+0600\n"
+"POT-Creation-Date: 2020-03-23 22:22+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,17 +40,41 @@ msgstr "Подтверждение пароля"
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
-#: .\templates\base.html:8 .\templates\index.html:8 .\templates\index.html:12
+#: .\forms.py:38 .\templates\show_note.html:8
+#: .\templates\show_user_notes.html:12
+msgid "Private"
+msgstr ""
+
+#: .\forms.py:39
+msgid "Note text"
+msgstr "Текст заметки"
+
+#: .\templates\add_note.html:3 .\templates\add_note.html:6
+msgid "Add note"
+msgstr "Добавить заметку"
+
+#: .\templates\add_note.html:21
+msgid "Save"
+msgstr "Сохранить"
+
+#: .\templates\base.html:8 .\templates\base.html:41 .\templates\index.html:8
+#: .\templates\index.html:12
 msgid "Notes"
 msgstr "Заметки"
 
-#: .\templates\base.html:57
+#: .\templates\base.html:55
+#, fuzzy
+#| msgid "Notes"
+msgid "My notes"
+msgstr "Мои заметки"
+
+#: .\templates\base.html:58
 #, fuzzy
 #| msgid "Username"
 msgid "User"
 msgstr "Имя пользователя"
 
-#: .\templates\index.html:3
+#: .\templates\index.html:3 .\templates\show_user_notes.html:3
 msgid "Main"
 msgstr "Главная"
 
@@ -65,22 +89,46 @@ msgstr "Вход"
 msgid "Sign up"
 msgstr "Вход"
 
+#: .\templates\show_note.html:3 .\templates\show_note.html:6
+#, fuzzy
+#| msgid "Notes"
+msgid "Note"
+msgstr "Заметки"
+
+#: .\templates\show_note.html:7
+msgid "Author"
+msgstr "Автор"
+
 #: .\templates\show_user.html:3 .\templates\signin.html:23
 #: .\templates\signup.html:3 .\templates\signup.html:6
 #: .\templates\signup.html:21
 msgid "Registration"
 msgstr "Регистрация"
 
+#: .\templates\show_user_notes.html:14
+msgid "yes"
+msgstr "да"
+
+#: .\templates\show_user_notes.html:16
+msgid "no"
+msgstr "нет"
+
+#: .\templates\show_user_notes.html:20
+msgid "Text"
+msgstr "Текст"
+
 #: .\templates\signin.html:23
 msgid "No account?"
 msgstr "Нет аккаунта?"
 
-#: .\views.py:50
+#: .\views.py:47
 msgid "Disabled account"
 msgstr "Аккаунт отключён"
 
-#: .\views.py:53
-msgid "Invalid login"
+#: .\views.py:50
+#, fuzzy
+#| msgid "Invalid login"
+msgid "Invalid login or password"
 msgstr "Неверный логин"
 
 #~ msgid "Login"

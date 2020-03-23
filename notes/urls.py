@@ -9,6 +9,9 @@ router.register(r'user', views_api.UserViewSet)
 
 
 urlpatterns = [
+        path('<int:note_id>', views.show_note, name='show_note'),
+        path('add/', views.add_note),
+        path('all/', views.show_user_notes),
         path('api/', include(router.urls)),
         path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
