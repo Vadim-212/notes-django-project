@@ -47,21 +47,21 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
         {% if request.session.logged_user %}
+            <li class="nav-item">
+                <a class="nav-link" href="/user">{% trans 'User' %}</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="/note/all">{% trans 'My notes' %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/user">{% trans 'User' %}</a>
+                <a class="nav-link" href="/note/add">{% trans 'Create note' %}</a>
             </li>
         {% endif %}
     </ul>
       <span class="navbar-text" >
           {% if request.session.logged_user %}
-            <a href="/logout">Logout</a>
+            <a href="/logout">{% trans 'Logout' %}</a>
           {% endif %}
     </span>
   </div>

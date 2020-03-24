@@ -104,8 +104,8 @@ def show_user_notes(request):
     if user_login is None:
         return redirect('index')
     user = User.objects.get(username=user_login)
-    notes = Note.objects.filter(user=user)
-    print(notes)
+    notes = Note.objects.filter(user=user).values('id','text','is_private','time_added')
+    print(notes[0])
     return render(request, 'show_user_notes.html', context={'notes': notes})
 
 

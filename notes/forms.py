@@ -35,7 +35,7 @@ class LoginForm(forms.Form):
 
 
 class NoteForm(forms.Form):
-    is_private = forms.BooleanField(label=_("Private"),initial=True)
+    is_private = forms.BooleanField(label=_("Private"),initial=True,required=False)
     text = forms.CharField(label=_("Note text"),widget=forms.Textarea)
 
 

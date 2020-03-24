@@ -5,6 +5,7 @@
 {% block content %}
     <div>{% trans 'Note' %}</div>
     <div>{% trans 'Author' %}: {{ note.user }}</div>
+    <div>{% trans 'Date added' %}: {{ note.time_added|date:'F d, Y H:i' }}</div>
     <div>{% trans 'Private' %}:
     {% if note.is_private %}
         <span>+</span>
