@@ -2,7 +2,9 @@ from django.contrib.auth import password_validation
 from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django import forms
 from django.contrib.auth.models import User
-from notes.models import User as UserModel
+from django.views.generic import UpdateView
+
+from notes.models import User as UserModel, Note
 from django.utils.translation import gettext as _
 # import bcrypt
 

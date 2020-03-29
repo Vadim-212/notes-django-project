@@ -3,6 +3,11 @@
 {% block title %}{% trans "Note" %}{% endblock title %}
 
 {% block content %}
+<div>
+    <div>
+        <a href="/note/edit/{{ note.id }}">{% trans 'Edit' %}</a>
+        <a href="/note/del/{{ note.id }}">{% trans 'Delete' %}</a>
+    </div>
     <div>{% trans 'Note' %}</div>
     <div>{% trans 'Author' %}: {{ note.user }}</div>
     <div>{% trans 'Date added' %}: {{ note.time_added|date:'F d, Y H:i' }}</div>
@@ -16,4 +21,5 @@
     <div>
         <textarea readonly="true">{{ note.text }}</textarea>
     </div>
+</div>
 {% endblock %}

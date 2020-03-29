@@ -5,6 +5,36 @@
 {% block content %}
     <div>notes</div>
     <div>
+        <div><a href="/note/add">{% trans 'Create note' %}</a></div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{% trans 'Private' %}</th>
+                    <th>{% trans 'Text' %}</th>
+                    <th>{% trans 'Date added' %}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for note in notes %}
+                    <tr>
+                        <td>
+                            {% if note.is_private %}
+                                <span>{% trans 'yes' %}</span>
+                            {% else %}
+                                <span>{% trans 'no' %}</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ note.text }}</td>
+                        <td>{{ note.time_added|date:'Y-m-d H:i' }}</td>
+                        <td>
+                            <a href="/note/edit/{{ note.id }}">{% trans 'Edit' %}</a>
+                            <a href="/note/del/{{ note.id }}">{% trans 'Delete' %}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
         <ul>
          {% for note in notes %}
           <li>

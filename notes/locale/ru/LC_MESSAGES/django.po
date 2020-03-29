@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-23 22:22+0600\n"
+"POT-Creation-Date: 2020-03-29 23:41+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,32 +20,32 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\forms.py:11 .\forms.py:33
+#: .\forms.py:13 .\forms.py:35
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: .\forms.py:12
+#: .\forms.py:14
 msgid "Email"
 msgstr "Email"
 
-#: .\forms.py:14 .\forms.py:34
+#: .\forms.py:16 .\forms.py:36
 msgid "Password"
 msgstr "Пароль"
 
-#: .\forms.py:19
+#: .\forms.py:21
 msgid "Confirm password"
 msgstr "Подтверждение пароля"
 
-#: .\forms.py:24
+#: .\forms.py:26
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
-#: .\forms.py:38 .\templates\show_note.html:8
-#: .\templates\show_user_notes.html:12
+#: .\forms.py:40 .\templates\show_note.html:14
+#: .\templates\show_user_notes.html:12 .\templates\show_user_notes.html:44
 msgid "Private"
-msgstr ""
+msgstr "Скрытая"
 
-#: .\forms.py:39
+#: .\forms.py:41
 msgid "Note text"
 msgstr "Текст заметки"
 
@@ -53,7 +53,7 @@ msgstr "Текст заметки"
 msgid "Add note"
 msgstr "Добавить заметку"
 
-#: .\templates\add_note.html:21
+#: .\templates\add_note.html:21 .\templates\edit_note.html:21
 msgid "Save"
 msgstr "Сохранить"
 
@@ -62,17 +62,31 @@ msgstr "Сохранить"
 msgid "Notes"
 msgstr "Заметки"
 
+#: .\templates\base.html:52
+#, fuzzy
+#| msgid "Username"
+msgid "User"
+msgstr "Имя пользователя"
+
 #: .\templates\base.html:55
 #, fuzzy
 #| msgid "Notes"
 msgid "My notes"
 msgstr "Мои заметки"
 
-#: .\templates\base.html:58
+#: .\templates\base.html:58 .\templates\show_user_notes.html:8
+msgid "Create note"
+msgstr "Создать заметку"
+
+#: .\templates\base.html:64
+msgid "Logout"
+msgstr "Выход"
+
+#: .\templates\edit_note.html:3 .\templates\edit_note.html:6
 #, fuzzy
-#| msgid "Username"
-msgid "User"
-msgstr "Имя пользователя"
+#| msgid "Add note"
+msgid "Edit note"
+msgstr "Добавить заметку"
 
 #: .\templates\index.html:3 .\templates\show_user_notes.html:3
 msgid "Main"
@@ -89,15 +103,28 @@ msgstr "Вход"
 msgid "Sign up"
 msgstr "Вход"
 
-#: .\templates\show_note.html:3 .\templates\show_note.html:6
+#: .\templates\show_note.html:3 .\templates\show_note.html:11
 #, fuzzy
 #| msgid "Notes"
 msgid "Note"
 msgstr "Заметки"
 
-#: .\templates\show_note.html:7
+#: .\templates\show_note.html:8 .\templates\show_user_notes.html:31
+msgid "Edit"
+msgstr "Редактировать"
+
+#: .\templates\show_note.html:9 .\templates\show_user_notes.html:32
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\show_note.html:12
 msgid "Author"
 msgstr "Автор"
+
+#: .\templates\show_note.html:13 .\templates\show_user_notes.html:14
+#: .\templates\show_user_notes.html:43
+msgid "Date added"
+msgstr "Время добавления"
 
 #: .\templates\show_user.html:3 .\templates\signin.html:23
 #: .\templates\signup.html:3 .\templates\signup.html:6
@@ -105,31 +132,35 @@ msgstr "Автор"
 msgid "Registration"
 msgstr "Регистрация"
 
-#: .\templates\show_user_notes.html:14
+#: .\templates\show_user_notes.html:13 .\templates\show_user_notes.html:52
+msgid "Text"
+msgstr "Текст"
+
+#: .\templates\show_user_notes.html:23 .\templates\show_user_notes.html:46
 msgid "yes"
 msgstr "да"
 
-#: .\templates\show_user_notes.html:16
+#: .\templates\show_user_notes.html:25 .\templates\show_user_notes.html:48
 msgid "no"
 msgstr "нет"
-
-#: .\templates\show_user_notes.html:20
-msgid "Text"
-msgstr "Текст"
 
 #: .\templates\signin.html:23
 msgid "No account?"
 msgstr "Нет аккаунта?"
 
-#: .\views.py:47
+#: .\views.py:51
 msgid "Disabled account"
 msgstr "Аккаунт отключён"
 
-#: .\views.py:50
+#: .\views.py:54
 #, fuzzy
 #| msgid "Invalid login"
 msgid "Invalid login or password"
-msgstr "Неверный логин"
+msgstr "Неверный логин или пароль"
+
+#: .\views.py:71
+msgid "Email confirmation "
+msgstr "Подтверждение email"
 
 #~ msgid "Login"
 #~ msgstr "Логин"
