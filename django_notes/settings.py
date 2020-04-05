@@ -24,29 +24,65 @@ DEBUG = os.environ.get('DJANGO_DEBUG') == '1'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '=bkd@!er*#m-jh' if DEBUG else os.environ['SECRET_KEY']
 
-ALLOWED_HOSTS = []#'pacific-headland-37827.herokuapp.com'
+ALLOWED_HOSTS = ['*']#'pacific-headland-37827.herokuapp.com'
 
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'filters': {
+#       'require_debug_false': {
+#           '()': 'django.utils.log.RequireDebugFalse',
+#       }
+#     },
+#     'formatters': {
+#       'verbose': {
+#         'format': '{asctime} {levelname} {process:d}-{thread:d} {name}: {message}',
+#         'style': '{',
+#       },
+#       # 'simple': {
+#       #     'format': '{levelname} {message}',
+#       #     'style': '{',
+#       # },
+#     },
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'verbose'
+#         },
+#         'file': {
+#             'class': 'logging.handlers.RotatingFileHandler',
+#             'level': 'INFO',
+#             'formatter': 'verbose',
+#             'filename': 'junk.log',
+#             'mode': 'a',
+#             'maxBytes': 10485760,
+#             'backupCount': 5,
+#         },
+#     },
+#     'loggers':
+#         {
+#         'tasker': {
+#             'handlers': ['console', 'file'],
+#             'level': 'DEBUG',
+#             'propagate': False
+#         }
+#     }
+# }
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'filters': {
-      'require_debug_false': {
-          '()': 'django.utils.log.RequireDebugFalse',
-      }
-    },
+    # определения форматтеров
     'formatters': {
-      'verbose': {
-        'format': '{asctime} {levelname} {process:d}-{thread:d} {name}: {message}',
-        'style': '{',
-      },
-      # 'simple': {
-      #     'format': '{levelname} {message}',
-      #     'style': '{',
-      # },
+        'verbose': {
+            'format': '{asctime} {levelname} {process:d}-{thread:d} {name}: {message}',
+            'style': '{',
+        }
     },
+    # определения обработчиков логов (им назначаются фильтры и форматтеры)
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
@@ -62,11 +98,11 @@ LOGGING = {
             'backupCount': 5,
         },
     },
-    'loggers':
-        {
+    # определения логгеров (им назначаются обработчики, уровень логгирования, переопределяются фильтры)
+    'loggers': {
         'tasker': {
             'handlers': ['console', 'file'],
-            'level': 'DEBUG',
+            'level': 'INFO',
             'propagate': False
         }
     }

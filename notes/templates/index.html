@@ -3,18 +3,15 @@
 {% block title %}{% trans 'Main' %}{% endblock title %}
 
 {% block content %}
-    {% if user_login != None %}
+    <div class="index-box-shadow"></div>
+    <div class="index-box-top">
+        <div id="index-box-title">{% trans 'Notes' %}!</div>
+    </div>
+    <div class="index-box-bottom">
         <div>
-            {% trans 'Notes' %}
+            <button onclick="location.assign('/signin')">{% trans 'Sign in' %}</button>
+            <button onclick="location.assign('/signup')">{% trans 'Sign up' %}</button>
         </div>
-    {% else %}
-        <div>
-            <div>{% trans 'Notes' %}!</div>
-            <div>
-                <button onclick="location.assign('/signin')">{% trans 'Sign in' %}</button>
-                <button onclick="location.assign('/signup')">{% trans 'Sign up' %}</button>
-            </div>
-        </div>
-    {% endif %}
-
+    </div>
+    
 {% endblock %}
